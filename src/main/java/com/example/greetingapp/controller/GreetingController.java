@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
         private final AtomicLong counter = new AtomicLong();
 
 
+
         @GetMapping(value = { "", "/", "/home" })
         public Model greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
             return new Model(counter.incrementAndGet(), String.format(template, name));
