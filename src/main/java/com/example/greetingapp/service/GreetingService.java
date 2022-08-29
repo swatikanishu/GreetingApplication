@@ -36,16 +36,25 @@ public class GreetingService {
         repository.save(greeting);
         return greeting;
     }
+
     public Optional<User> sayHelloById(long id) {
         return repository.findById(id);
 
     }
-    public List<User> findByAllGreet(){
+
+    public List<User> findByAllGreet() {
         return repository.findAll();
     }
 
+    public User editGreeting(User greeting, long id) {
+        User existingGreet = repository.findById(id).orElse(null);
+        if (existingGreet != null) {
+            existingGreet.setMessage(greeting.getMessage());
+            return repository.save(existingGreet);
+        } else
+            return null;
+    }
 }
-
 
 
 

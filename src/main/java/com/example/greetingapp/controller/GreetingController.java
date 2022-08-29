@@ -52,6 +52,10 @@ import java.util.Optional;
     public List<User> findAllGreetings() {
         return greetingService.findByAllGreet();
     }
+    @PutMapping("/editGreet/{id}")
+    public User editGreeting(@RequestBody User greeting, @PathVariable long id) {
+        return greetingService.editGreeting(greeting, id);
+    }
 }
 
 
