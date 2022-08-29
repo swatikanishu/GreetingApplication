@@ -4,6 +4,7 @@ import com.example.greetingapp.service.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -46,6 +47,10 @@ import java.util.Optional;
     public Optional<User> sayHelloById (@PathVariable long id){
         Optional<User> response = greetingService.sayHelloById(id);
         return response;
+    }
+    @GetMapping("/allGreetings")
+    public List<User> findAllGreetings() {
+        return greetingService.findByAllGreet();
     }
 }
 
