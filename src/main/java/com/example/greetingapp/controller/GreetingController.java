@@ -4,6 +4,8 @@ import com.example.greetingapp.service.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 
 @RestController
     @RequestMapping("/greeting")
@@ -39,6 +41,11 @@ import org.springframework.web.bind.annotation.*;
     public User get(@RequestBody User greeting){
          greetingService.getGreeting(greeting);
         return greeting;
+    }
+    @GetMapping("/get/{id}")
+    public Optional<User> sayHelloById (@PathVariable long id){
+        Optional<User> response = greetingService.sayHelloById(id);
+        return response;
     }
 }
 

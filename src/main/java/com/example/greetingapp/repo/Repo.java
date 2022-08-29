@@ -16,7 +16,7 @@ import java.util.Optional;
 import java.util.function.Function;
 
 @Repository
-public interface Repo extends JpaRepository<User,Integer>{
+public interface Repo extends JpaRepository<User,Long>{
 
 
 
