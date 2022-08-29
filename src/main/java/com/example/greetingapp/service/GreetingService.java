@@ -54,6 +54,10 @@ public class GreetingService {
         } else
             return null;
     }
+    public void deleteGreeting(long id) {
+        repository.deleteById(id);
+    }
+
 }
 
 

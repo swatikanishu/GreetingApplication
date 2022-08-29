@@ -56,6 +56,11 @@ import java.util.Optional;
     public User editGreeting(@RequestBody User greeting, @PathVariable long id) {
         return greetingService.editGreeting(greeting, id);
     }
+    @DeleteMapping("/delete/{id}")
+    public String deleteGreeting(@PathVariable long id) {
+        greetingService.deleteGreeting(id);
+        return "Message Deleted";
+    }
 }
 
 
